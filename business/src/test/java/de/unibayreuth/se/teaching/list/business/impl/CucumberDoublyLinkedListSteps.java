@@ -1,5 +1,6 @@
 package de.unibayreuth.se.teaching.list.business.impl;
 
+import de.unibayreuth.se.teaching.list.data.persistence.DoublyLinkedList;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -39,6 +40,11 @@ public class CucumberDoublyLinkedListSteps {
         arrayFromValues = values.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
+    @Given("a list with elements:")
+    public void aListWithElements(List<Double> values) {
+        values.forEach(list::append);
+    }
+
     // When -----------------------------------------------------------------------
 
     @When("^I append an element with value (\\d+.\\d+)$")
@@ -55,6 +61,11 @@ public class CucumberDoublyLinkedListSteps {
     @When("^I invert the list$")
     public void iInvertTheList() {
         logger.info("%s not implemented yet.".formatted(Thread.currentThread().getStackTrace()[1].getMethodName()));
+    }
+
+    @When("I insert an element with value {double}")
+    public void iInsertAnElementWithValue(double value) {
+        list.insert(value);
     }
 
     // Then -----------------------------------------------------------------------
