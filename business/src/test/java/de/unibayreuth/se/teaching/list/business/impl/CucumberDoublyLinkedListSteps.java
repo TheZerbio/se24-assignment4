@@ -1,6 +1,5 @@
 package de.unibayreuth.se.teaching.list.business.impl;
 
-import de.unibayreuth.se.teaching.list.data.persistence.DoublyLinkedList;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
